@@ -2,7 +2,7 @@ const { spawn } = require("child_process");
 
 async function procx(args) {
     return new Promise(async function(resolve, reject) {
-        const cmd = spawn("procx", args);
+        const cmd = spawn("procx", args, {...process.env});
         let output = "";
         let err = "";
         cmd.stdout.on("data", data => {
